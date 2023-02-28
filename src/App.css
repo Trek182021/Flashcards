@@ -1,42 +1,145 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@300&display=swap');
+
+* {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.App {
+  background-image: url(https://images.pexels.com/photos/349610/pexels-photo-349610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto;
+  margin: 70px auto;
+  height: 80vh;
   text-align: center;
+  width: 100vw;
+  color: black;
+  padding: 100px 0 0 0;
+  position: absolute;
+  border-radius: 12px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.App button {
+  margin: 10px 20px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+ .flip-card {
+  background-color: transparent;
+  width: 600px;
+  height: 400px;
+  margin: 20px auto;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 30px;
 }
 
-.card {
-  padding: 2em;
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-front {
+  opacity: 0;
 }
 
-.read-the-docs {
-  color: #888;
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: rgba(0,0,0,0.2);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  word-wrap: break-word;
+  border-radius: 30px;
+}
+
+.flip-card-front h2 {
+  margin: 20px 30px 40px 30px;
+}
+
+.incorrectAnswers {
+  display: flex;
+  padding: 0 30px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.2em;
+}
+
+.incorrectAnswers p{
+  background-color: black;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 15px;
+  min-width: 150px;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: #539987;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  
+  border-radius: 30px;
+} 
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: white;
+}
+
+.btn {
+  border-radius: 0.12em;
+  color: #000;
+  border: 0.1em solid #000;
+  padding: 0.35em 1.2em;
+  display: inline-block;
+  margin: 0 10px 10px 0;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+.btn:hover {
+  border: 0.1em solid red;
 }

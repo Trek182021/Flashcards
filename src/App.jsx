@@ -1,33 +1,40 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { EASY_DATA, MEDIUM_DATA, HARD_DATA } from './data'
+import FlipCard from './components/FlipCard'
+
+const easy = JSON.parse(EASY_DATA);
+const medium = JSON.parse(MEDIUM_DATA);
+const hard = JSON.parse(HARD_DATA);
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [data, setData] = useState(easy)
+  const [questionIndex, setQuestionIndex] = useState(0)
 
+  console.log(data);
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="App">
+
+            
+        <h1>Food & Drink Quiz</h1>
+        <p> This quiz has multiple questions with difficulties ranging from easy to hard. <br/>The questions and answers is from the <a href="https://the-trivia-api.com/" target="_blank">Trivia API</a></p>
+        <p> Number of cards: {data.length}</p>
+
+
+        {/* Difficulty Change buttons */}
+        <button className="btn easy" onClick={() => setData(easy)}>Easy</button>
+        <button className="btn med" onClick={() => setData(medium)}>Medium</button>
+        <button className="btn hard" onClick={() => setData(hard)}>Hard</button>
+
+
+        <FlipCard data={data[questionIndex]} key={questionIndex}/>
+        
+        {questionIndex > 0 && <button onClick={() => setQuestionIndex((questionIndex-1)%12)}>←</button>}
+        <button onClick={() => setQuestionIndex((questionIndex+1)%12)}>→</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
   )
 }
 
