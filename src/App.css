@@ -15,12 +15,12 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto;
-  margin: 70px auto;
-  height: 80vh;
+  margin: 0 auto;
+  min-height: 100vh;
   text-align: center;
   width: 100vw;
   color: black;
-  padding: 100px 0 0 0;
+  padding: 100px 0;
   position: absolute;
   border-radius: 12px;
 }
@@ -142,4 +142,33 @@ button {
 
 .btn:hover {
   border: 0.1em solid red;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.wrong {
+  border: red 3px solid;
+}
+
+.correct {
+  border: #539987 3px solid;
+}
+
+.guess-input button{
+  margin: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.guess-input input {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  width: 12em;
 }
