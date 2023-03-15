@@ -2,7 +2,7 @@ const EASY_DATA = `[
     {
       "category": "Food & Drink",
       "id": "622a1c367cc59eab6f950246",
-      "correctAnswer": "Avocado ",
+      "correctAnswer": "Avocado",
       "incorrectAnswers": [
         "Cucumber",
         "Tomato",
@@ -41,7 +41,7 @@ const EASY_DATA = `[
     {
       "category": "Food & Drink",
       "id": "622a1c3b7cc59eab6f951557",
-      "correctAnswer": "Texas ",
+      "correctAnswer": "Texas",
       "incorrectAnswers": [
         "Florida",
         "California",

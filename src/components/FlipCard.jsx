@@ -4,7 +4,7 @@ export default function FlipCard({data}) {
 
     
     let choices = [...data.incorrectAnswers, data.correctAnswer];
-    const correctAnswer = data.correctAnswer.toLowerCase();
+    const correctAnswer = data.correctAnswer.toLowerCase().trim();
     const [guess, setGuess] = useState("");
     const [submit, setSubmit] = useState(false);
     const [answer, setAnswer] = useState(false);
@@ -14,25 +14,12 @@ export default function FlipCard({data}) {
     // choices.sort(() => Math.random() - 0.5)
 
 
-    const handleSubmit = () => {
-      if (guess != "") { 
+    function handleSubmit() {
         setSubmit(true);
         setAnswer(true);
-        // console.log(answer)
+        console.log(correctAnswer);
+        setIsCorrect(guess == correctAnswer.toLowerCase());
         
-        // console.log("Guess: " + typeof(guess));
-        // console.log("Answer: " + typeof(correctAnswer));
-        // console.log(data.correctAnswer.toLowerCase())
-        var run = true;
-        for(var i = 0; i < correctAnswer.length -1;i++) {
-          if (correctAnswer[i].toLowerCase != guess[i].toLowerCase) {
-            run = false;
-          }
-        }
-        setIsCorrect(run);
-      
-        
-      }
       
     }
 
@@ -57,9 +44,8 @@ export default function FlipCard({data}) {
 
         </div>
         <div className="guess-input">
-            <input type="text" id="guess" value={guess} onChange={e => setGuess(e.target.value)} placeholder="Enter Guess here..."required></input>
+            <input type="text" id="guess" value={guess} onChange={e => setGuess(e.target.value.trim())} placeholder="Enter Guess here..."required/>
             <button type="submit" onClick={handleSubmit}>Submit Guess</button>
-         
         </div>
       </>
     )
